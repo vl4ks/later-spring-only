@@ -7,7 +7,6 @@ import org.apache.catalina.startup.Tomcat;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-
 public class LaterApplication {
 
     public static void main(String[] args) throws LifecycleException {

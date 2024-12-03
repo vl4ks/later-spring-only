@@ -1,24 +1,25 @@
 package ru.practicum.user;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Slf4j
+
 @Service
 @RequiredArgsConstructor
 class UserServiceImpl implements UserService {
     private final UserRepository repository;
 
     @Override
-    public List<User> getAllUsers() {
-        return repository.findAll();
+    public List<UserDTO> getAllUsers() {
+        List<User> users = repository.findAll();
+        return UserMapper.mapToUserDTO(users);
     }
 
     @Override
-    public User saveUser(User user) {
-        return repository.save(user);
+    public UserDTO saveUser(UserDTO userDTO) {
+        User user = repository.save(UserMapper.mapToNewUser(userDTO));
+        return UserMapper.mapToUserDTO(user);
     }
 }

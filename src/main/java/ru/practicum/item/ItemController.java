@@ -12,14 +12,14 @@ public class ItemController {
     private final ItemService itemService;
 
     @GetMapping
-    public List<Item> get(@RequestHeader("X-Later-User-Id") long userId) {
+    public List<ItemDTO> get(@RequestHeader("X-Later-User-Id") long userId) {
         return itemService.getItems(userId);
     }
 
     @PostMapping
-    public Item add(@RequestHeader("X-Later-User-Id") Long userId,
-                    @RequestBody Item item) {
-        return itemService.addNewItem(userId, item);
+    public ItemDTO add(@RequestHeader("X-Later-User-Id") Long userId,
+                       @RequestBody ItemDTO itemDTO) {
+        return itemService.addNewItem(userId, itemDTO);
     }
 
     @DeleteMapping("/{itemId}")
