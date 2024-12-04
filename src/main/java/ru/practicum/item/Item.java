@@ -1,11 +1,9 @@
 package ru.practicum.item;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import ru.practicum.user.User;
 
 import java.util.HashSet;
 import java.util.Set;
